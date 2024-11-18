@@ -8,7 +8,12 @@ import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import wisp from "wisp-server-node";
 import request from '@cypress/request';
 import chalk from 'chalk';
-import packageJson from './package.json' assert { type: 'json' };
+import fs from 'fs';
+
+// Read the JSON file manually
+const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+console.log(packageJson);
+
 
 const __dirname = path.resolve();
 const server = http.createServer();
